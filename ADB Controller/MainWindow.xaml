@@ -1,0 +1,96 @@
+﻿<Window x:Class="ADB_Controller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADB_Controller"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000">
+
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Name = "Button_divices" Tag="devices" Click="OnClickCommand"
+                Grid.Row="0" Grid.Column="0" Content="adb devices"/>
+            <Button Name = "Button_kill" Tag="kill" Click="OnClickCommand"
+                Grid.Row="0" Grid.Column="1" Content="adb kill-server" />
+            <Button Name = "Button_reboot" Tag="reboot" Click="OnClickCommand"
+                Grid.Row="0" Grid.Column="2" Content="adb reboot"/>
+            <Button Name = "Button_push" Tag="push" Click="OnClickCommand"
+                Grid.Row="1" Grid.Column="0" Content="adb push"/>
+            <Button Name = "Button_pull" Tag="pull" Click="OnClickCommand"
+                Grid.Row="1" Grid.Column="1" Content="adb pull"/>
+            <Button Name = "Button_install" Tag="install" Click="OnClickCommand"
+                Grid.Row="1" Grid.Column="2" Content="adb install-r"/>
+            <Button Name = "Button_goHome" Tag="home" Click="OnClickCommand"
+                Grid.Row="2" Grid.Column="0" Content="HOME"/>
+            <Button Name = "Button_info" Tag="info" Click="OnClickCommand"
+                Grid.Row="2" Grid.Column="1" Content="info"/>
+        </Grid>
+
+        <Grid Margin="10,20,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Project PathN " FontWeight="Bold" Margin="10,0,10,0"
+                       HorizontalAlignment="Center" Grid.Column="0"/>
+
+            <TextBox Name ="ProjectPath" Grid.Column="1"
+                     Height="20" BorderBrush="Black"/>
+
+            <Button Name = "Button_find_Project" Tag="project" Padding="10,0" Margin="10,0,10,0"
+                    Click="OnClickFindCommand" Grid.Column="2" Content="Find"/>
+
+            <TextBlock Text="APK Name" FontWeight="Bold" Margin="10,0,10,0"
+                       HorizontalAlignment="Center" Grid.Column="3"/>
+
+            <TextBox Name ="APKName" Grid.Column="4"
+                     Height="20" BorderBrush="Black"/>
+
+            <Button Name = "Button_auto_find_App" Tag="app_auto" Padding="10,0" Margin="10,0,0,0"
+                    Click="OnClickFindCommand" Grid.Column="5" Content="Auto"/>
+
+            <Button Name = "Button_find_App" Tag="app" Padding="10,0" Margin="10,0,10,0"
+                    Click="OnClickFindCommand" Grid.Column="6" Content="Find"/>
+        </Grid>
+
+        <Grid Margin="10,10,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="ADB Path" FontWeight="Bold" Margin="20,5,20,0"
+                       HorizontalAlignment="Center" Grid.Column="0"/>
+
+            <TextBox Name ="ADBPath" Grid.Column="1"
+                     Height="20" BorderBrush="Black"/>
+
+            <Button Name = "Button_find_ADBPath" Tag="adb" Padding="10,0" Margin="10,0,10,0"
+                    Click="OnClickFindCommand" Grid.Column="2" Content="Find"/>
+        </Grid>
+
+        <TextBlock Text="Result" FontWeight="Bold" Margin="30,20,20,0"/>
+        <TextBox Name ="ResultBox" IsReadOnly="True" Margin="30,5,20,0"
+                 Height="300" VerticalScrollBarVisibility="Auto" BorderBrush="Black"/>
+        <Button Name = "Button_clear" Tag="clear" Padding="10,0" Margin="700,20,20,0"
+                     Click="OnClickCommand" Grid.Column="2" Content="Clear"/>
+    </StackPanel>
+</Window>
