@@ -27,8 +27,9 @@ namespace ADB_Controller
             ProjectPath.Text = Properties.Settings.Default.defaultPath;
             if(!ProjectPath.Text.Equals("")) { }
                 GetAPKName(ProjectPath.Text);
-            ADBPath.Text = "vendor/app/";
-        }
+
+			ADBPath.Text = Properties.Settings.Default.emulatorPath;
+		}
 
         private void StartCmd()
         {
